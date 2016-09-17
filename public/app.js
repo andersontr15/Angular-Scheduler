@@ -37,7 +37,7 @@
             })
         }
         vm.getCurrentJobs();
-        vm.title = "Angular Scheduler";
+        vm.title = "Angular Scheduler Authored By Theodore Anderson";
     });
 
     app.config(function($routeProvider) {

@@ -8,14 +8,7 @@ var mongoose = require('mongoose');
 
 // var db = 'mongodb://heroku_f6sx71dj:thuglife25@ds033076.mlab.com:33076/heroku_f6sx71dj';
 
-mongoose.connect(process.env.MONGOLAB_URI, {}, function(err, db){
-    if(err){
-        console.log(err);
-    }
-    else {
-        console.log('Connecting to db' + db);
-    }
-});
+mongoose.connect('mongodb://heroku_f6sx71dj:thuglife25@ds033076.mlab.com:33076/heroku_f6sx71dj');
 
 var morgan = require('morgan');
 

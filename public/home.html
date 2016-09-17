@@ -5,7 +5,7 @@
 		</div>
 		<div class="current-jobs">
 			<table class="table table-bordered table-striped table-hovered table-condensed" ng-if="vm.jobs.length > 0">
-				<input type="text" placeholder="Search for a job.." class="form-control" style="width:300px; margin: 10px;" ng-model="query" ng-if="vm.jobs.length > 0">
+				<input type="text" ng-model="query" placeholder="Search for a job.." class="form-control" style="width:300px; margin: 10px;">
 				<th style="cursor: pointer;">Name</th>
 				<th style="cursor: pointer;">Dynos</th>
 				<th style="cursor: pointer;">Frequency</th>

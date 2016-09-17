@@ -8,7 +8,7 @@
         vm.jobDetail = function(job){
             vm.details = true;
             vm.selectedJob = job;
-            vm.selectedId = job._id.slice(0,5);
+            vm.selectedId = job._id;
         };
 
         vm.saveJob = function(job) {

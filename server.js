@@ -10,7 +10,7 @@ var db = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || "localhost://mon
 
 mongoose.connect(db, function(err, res){
     if(err){
-        console.log('Receiving an err' err);
+        console.log('Receiving an err' +  err);
     }
     else {
         console.log('Connecting to db' + db);

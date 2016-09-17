@@ -6,14 +6,8 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 
-var db;
+var db = "mongodb://theo:thuglife25@ds033076.mlab.com:33076/heroku_f6sx71dj" || "mongodb://localhost/angular_scheduler";
 
-if(process.ENV.NODE_ENV === 'production') {
-    db =  "mongodb://theo:thuglife25@ds033076.mlab.com:33076/heroku_f6sx71dj";
-}
-else {
-    db = "mongodb://localhost/angular_scheduler";
-}
 mongoose.connect(db, function(err, res){
     if(err){
         console.log('Receiving an err' +  err);

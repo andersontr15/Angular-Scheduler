@@ -12,7 +12,7 @@
 				<th style="cursor: pointer;">Last Run</th>
 				<th style="cursor: pointer;">Scheduled</th>
 				<th>Action</th>
-				<tr ng-repeat="job in vm.jobs | filter:query | orderBy: vm.filteredName">
+				<tr ng-repeat="job in vm.jobs | filter:query">
 					<td ng-if="!editing">{{job.name}}</td>
 					<td ng-if="!editing">{{job.dynos}}</td>
 					<td ng-if="!editing">{{job.frequency}}</td>
@@ -31,7 +31,7 @@
 						<input type="text" ng-model="job.lastRun | date">
 					</td>
 					<td ng-show="editing" >
-					<input type="text" ng-model="job.scheduled" value="job.scheduled | date"/>
+					<input type="text" ng-model="job.scheduled | date" value="job.scheduled | date"/>
 					</td>
 					<td>
 						<button ng-show="!editing" ng-click="editing=true" class="btn btn-warning">Edit</button>

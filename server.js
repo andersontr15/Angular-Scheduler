@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 
-var db = 'localhost:mongodb/angular_scheduler';
+var db = 'mongodb://heroku_f6sx71dj:thuglife25@ds033076.mlab.com:33076/heroku_f6sx71dj';
 
 mongoose.connect(db);
 

@@ -3,8 +3,8 @@
 		<div class="col-md-12">
 			<h3 class="text-center">{{vm.title}}</h3>
 		</div>
-		<div class="current-jobs">
-			<table class="table table-bordered table-striped table-hovered table-condensed" ng-if="vm.jobs.length > 0">
+		<div class="current-jobs" ng-if="vm.jobs.length > 0">
+			<table class="table table-bordered table-striped table-hovered table-condensed">
 				<input type="text" placeholder="Search for a job.." class="form-control" style="width:300px; margin: 10px;" ng-model="query">
 				<th ng-click="vm.filteredName = 'name'" style="cursor: pointer;">Name</th>
 				<th ng-click="vm.filteredName = 'dynos'" style="cursor: pointer;">Dynos</th>

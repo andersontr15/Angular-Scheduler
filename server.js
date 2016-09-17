@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 
 var db;
 
-if(process.ENV === 'production') {
+if(process.ENV.NODE_ENV === 'production') {
     db =  "mongodb://theo:thuglife25@ds033076.mlab.com:33076/heroku_f6sx71dj";
 }
 else {

@@ -5,6 +5,12 @@
         var vm = this;
         vm.jobs = [];
 
+        vm.jobDetail = function(job){
+            vm.details = true;
+            vm.selectedJob = job;
+            vm.selectedId = job._id.slice(0,5);
+        };
+
         vm.saveJob = function(job) {
             console.log(job);
             if (job) {

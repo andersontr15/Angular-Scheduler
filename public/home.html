@@ -3,21 +3,21 @@
 		<div class="col-md-12">
 			<h3 class="text-center">{{vm.title}}</h3>
 		</div>
-		<div class="current-jobs">
+		<div class="current-jobs" ng-hide="vm.details === true;">
 			<table class="table table-bordered table-striped table-hovered table-condensed" ng-if="vm.jobs.length > 0">
 				<input type="text" ng-model="query" placeholder="Search for a job.." class="form-control" style="width:300px; margin: 10px;">
-				<th style="cursor: pointer;">Name</th>
-				<th style="cursor: pointer;">Dynos</th>
-				<th style="cursor: pointer;">Frequency</th>
-				<th style="cursor: pointer;">Last Run</th>
-				<th style="cursor: pointer;">Scheduled</th>
+				<th>Name</th>
+				<th>Dynos</th>
+				<th>Frequency</th>
+				<th>Last Run</th>
+				<th>Scheduled</th>
 				<th>Action</th>
-				<tr ng-repeat="job in vm.jobs | filter:query">
-					<td ng-if="!editing">{{job.name}}</td>
-					<td ng-if="!editing">{{job.dynos}}</td>
-					<td ng-if="!editing">{{job.frequency}}</td>
-					<td ng-if="!editing">{{job.lastRun | date}}</td>
-					<td ng-if="!editing">{{job.scheduled | date}}</td>
+				<tr ng-repeat="job in vm.jobs | filter:query" style="cursor: pointer;">
+					<td ng-click="vm.jobDetail(job)"  ng-if="!editing" >{{job.name}}</td>
+					<td ng-click="vm.jobDetail(job)"  ng-if="!editing">{{job.dynos}}</td>
+					<td ng-click="vm.jobDetail(job)"  ng-if="!editing">{{job.frequency}}</td>
+					<td ng-click="vm.jobDetail(job)"  ng-if="!editing">{{job.lastRun | date}}</td>
+					<td ng-click="vm.jobDetail(job)"  ng-if="!editing">{{job.scheduled | date}}</td>
 					<td ng-show="editing">
 					<input type="text" ng-model="job.name">
 					</td>
@@ -45,6 +45,27 @@
 			Add New Job
 			</button>
 		</div>
+		<div class="detail-view" ng-show="vm.details">
+			
+				<div class="jumbotron" style="margin: 50px;">
+				<div class="close" style="font-size: 50px; cursor: pointer; color: red;" ng-click="vm.details = false;">X</div>
+				<h3>You have selected Job #{{vm.selectedId}}</h3>
+					<table class="table table-bordered table-striped table-hovered table-condensed">
+						<th>Name</th>
+						<th>Dynos</th>
+						<th>Frequency</th>
+						<th>Last Run</th>
+						<th>Scheduled</th>
+						<tr>
+							<td>{{vm.selectedJob.name}}</td>
+							<td>{{vm.selectedJob.dynos}}</td>
+							<td>{{vm.selectedJob.frequency}}</td>
+							<td>{{vm.selectedJob.lastRun | date}}</td>
+							<td>{{vm.selectedJob.scheduled | date}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
 		<div class="job-form" ng-hide="!showJobs">
 			<div class="form-group">
 				<label for="name">Name</label>

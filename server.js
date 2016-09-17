@@ -6,7 +6,9 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGOLAB_URI || process.env.MONGOHQ_URL, {}, function(err, db){
+var db = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || "localhost://mongodb/angular_scheduler";
+
+mongoose.connect(db, function(err, res){
     if(err){
         console.log('Receiving an err' err);
     }

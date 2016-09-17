@@ -6,11 +6,11 @@
 		<div class="current-jobs">
 			<table class="table table-bordered table-striped table-hovered table-condensed" ng-if="vm.jobs.length > 0">
 				<input type="text" placeholder="Search for a job.." class="form-control" style="width:300px; margin: 10px;" ng-model="query" ng-if="vm.jobs.length > 0">
-				<th ng-click="vm.filteredName = 'name'" style="cursor: pointer;">Name</th>
-				<th ng-click="vm.filteredName = 'dynos'" style="cursor: pointer;">Dynos</th>
-				<th ng-click="vm.filteredName = 'frequency'" style="cursor: pointer;">Frequency</th>
-				<th ng-click="vm.filteredName = 'lastRun'" style="cursor: pointer;">Last Run</th>
-				<th ng-click="vm.filteredName = 'scheduled'" style="cursor: pointer;">Scheduled</th>
+				<th style="cursor: pointer;">Name</th>
+				<th style="cursor: pointer;">Dynos</th>
+				<th style="cursor: pointer;">Frequency</th>
+				<th style="cursor: pointer;">Last Run</th>
+				<th style="cursor: pointer;">Scheduled</th>
 				<th>Action</th>
 				<tr ng-repeat="job in vm.jobs | filter:query | orderBy: vm.filteredName">
 					<td ng-if="!editing">{{job.name}}</td>
@@ -28,10 +28,10 @@
 					<input type="text" ng-model="job.frequency">
 					</td>
 					<td ng-show="editing">
-						<input type="text" ng-model="job.lastRun">
+						<input type="text" ng-model="job.lastRun | date">
 					</td>
 					<td ng-show="editing" >
-					<input type="text" ng-model="job.scheduled" value="job.scheduled"/>
+					<input type="text" ng-model="job.scheduled" value="job.scheduled | date"/>
 					</td>
 					<td>
 						<button ng-show="!editing" ng-click="editing=true" class="btn btn-warning">Edit</button>
